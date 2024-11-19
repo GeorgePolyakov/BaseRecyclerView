@@ -2,10 +2,15 @@ package com.base.baserecyclerview.model
 
 
 import com.github.javafaker.Faker;
+import java.util.Collections
+
+typealias UsersListener = (user: List<User>) -> Unit
 
 class UserService {
 
-    private val user = mutableListOf<User>()
+    private val users = mutableListOf<User>()
+
+    private val listeners = mutableSetOf<UsersListener>()
 
     init {
         val faker = Faker.instance()
@@ -17,6 +22,45 @@ class UserService {
                 company = faker.company().name(),
                 photo = IMAGES[it % IMAGES.size]
             )
+        }
+    }
+
+    fun getUser() : List<User> {
+        return users
+    }
+
+    fun deleteUser(user : User){
+        val indexToDelete = users.indexOfFirst {
+            it.id == user.id
+        } // return first finded element or -1
+
+        if(indexToDelete!=-1){
+            users.removeAt(indexToDelete)
+            notifyChanges()
+        }
+    }
+
+    fun moveUser(user: User, moveBy : Int) {
+        val oldIndex = users.indexOfFirst { it.id == user.id }
+        if(oldIndex == -1) return
+        val newIndex = oldIndex + moveBy
+        if(newIndex < 0 || newIndex >= users.size) return // if we are in the beggining of list
+        Collections.swap(users, oldIndex, newIndex)
+        notifyChanges()
+    }
+
+    fun addListener(listener : UsersListener) {
+        listeners.add(listener)
+        listener.invoke(users)
+    }
+
+    fun removeListener(listener: UsersListener) {
+        listeners.remove(listener)
+    }
+
+    private fun notifyChanges() {
+        listeners.forEach { listener ->
+            listener.invoke(users)
         }
     }
 
