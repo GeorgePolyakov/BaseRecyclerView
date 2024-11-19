@@ -12,7 +12,7 @@ navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
 recycler-view = "1.3.2"
 java-faker = "1.0.2"
-glide = "4.12.0"
+glide = "4.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,8 +21,8 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 recycler-view = { group = "androidx.recyclerview:recyclerview", name = "recyclerview", version.ref = "recycler-view" }
-javafaker = {group = "com.github.javafaker:javafaker", name = "javafaker", version.ref = "java-faker"}
-glide = { group = "com.github.bumptech.glide:glide", name = "glide", version.ref = "glide"}
+javafaker = {group = "com.github.javafaker", name = "javafaker", version.ref = "java-faker"}
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
