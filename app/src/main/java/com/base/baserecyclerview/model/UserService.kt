@@ -1,6 +1,7 @@
 package com.base.baserecyclerview.model
 
 
+import android.util.Log
 import com.github.javafaker.Faker;
 import java.util.Collections
 
@@ -8,21 +9,22 @@ typealias UsersListener = (user: List<User>) -> Unit
 
 class UserService {
 
-    private val users = mutableListOf<User>()
+    private var users = mutableListOf<User>()
 
     private val listeners = mutableSetOf<UsersListener>()
 
     init {
         val faker = Faker.instance()
         IMAGES.shuffle()
-        val generateUsers = (1..100).map{
+        users = (1..100).map{
             User (
                 id = it.toLong(),
                 name = faker.name().name(),
                 company = faker.company().name(),
                 photo = IMAGES[it % IMAGES.size]
             )
-        }
+        }.toMutableList()
+        Log.d("userData", "users is $users")
     }
 
     fun getUser() : List<User> {
@@ -51,6 +53,8 @@ class UserService {
 
     fun addListener(listener : UsersListener) {
         listeners.add(listener)
+        Log.d("userData", "users  add Listener list is ${listeners}")
+        Log.d("userData", "users  add Listener list is ${users}")
         listener.invoke(users)
     }
 

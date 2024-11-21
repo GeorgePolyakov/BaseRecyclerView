@@ -20,7 +20,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-recycler-view = { group = "androidx.recyclerview:recyclerview", name = "recyclerview", version.ref = "recycler-view" }
+recycler-view = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recycler-view" }
 javafaker = {group = "com.github.javafaker", name = "javafaker", version.ref = "java-faker"}
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide"}
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
